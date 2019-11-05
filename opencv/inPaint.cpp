@@ -8,6 +8,7 @@ std::string fileName = "D:\\Proj\\opencv\\ConsoleApplication2\\fruits.jpg";
 cv::Mat img, inpaintMask; 
 cv::Point prevPt(-1, -1); 
 cv::Mat inpainted;  
+
 void help() 
 { 	
 	std::cout << "tips:" << std::endl;
@@ -15,6 +16,7 @@ void help()
 	std::cout << "\t r -> reinpaint" << std::endl;
 	std::cout << "\t i -> inpaint" << std::endl; 
 }  
+
 void onMouse(int event, int x, int y, int flags, void*) 
 { 	
 	if (event == CV_EVENT_LBUTTONUP || !(flags & CV_EVENT_FLAG_LBUTTON)) 	
@@ -39,6 +41,7 @@ void onMouse(int event, int x, int y, int flags, void*)
 		cv::imshow("mask", inpaintMask); 	
 	} 
 }  
+
 int main() 
 { 	
 	cv::Mat img0 = cv::imread(fileName, -1);  	
@@ -58,7 +61,8 @@ int main()
 	
 	cvSetMouseCallback("img", onMouse, 0);  	
 	
-	help();  	
+	// show tips
+	help();	  	
 	
 	while (1) 	
 	{ 		
